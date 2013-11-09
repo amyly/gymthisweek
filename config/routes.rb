@@ -8,6 +8,7 @@ GirlTalk::Application.routes.draw do
   match 'auth/foursquare/callback' => 'sessions#create', via: :get
   match 'signout' => 'sessions#destroy', as: 'signout', via: :get
   match 'auth/failure', to: redirect('/'), via: :get
+  resources :hashtags
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

@@ -12,6 +12,19 @@
   <% end %>
 </ul>
 
-<h2>Track custom hashtags:</h2>
+<h2>Custom Hashtag Tracking</h2>
+
+<h3>Hashtags tracked:</h3>
+
+<% @user.hashtags.each do |hashtag| %>
+  #<%= hashtag[:hashtag] %>
+<% end %>
+
+<h3>Add new hashtag:</h3>
+  <%= form_for @hashtag do |f| %>
+    <%= f.label :hashtag %>
+    <%= f.text_field :hashtag %>
+    <%= f.submit %>
+  <% end %>
 
 <% end %>
