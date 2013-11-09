@@ -5,6 +5,9 @@ GirlTalk::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'welcome#index'
+  match 'auth/foursquare/callback' => 'sessions#create', via: :get
+  match 'signout' => 'sessions#destroy', as: 'signout', via: :get
+  match 'auth/failure', to: redirect('/'), via: :get
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
