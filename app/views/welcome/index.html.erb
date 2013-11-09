@@ -1,1 +1,17 @@
-<h1>Welcome to Gym This Week</h1>
+<h1>Welcome</h1>
+
+<% if current_user %>
+
+
+<h2>Here are the <%= @user_checkins.length %> restaurants you've checked into this week</h2>
+<ul>
+  <% @user_checkins.each do |checkin| %>
+  <li>
+    <%= checkin[:venue_name] %>, <%= Time.at(checkin[:time]).to_s %>
+  </li>
+  <% end %>
+</ul>
+
+<h2>Track custom hashtags:</h2>
+
+<% end %>
