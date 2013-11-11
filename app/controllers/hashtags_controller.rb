@@ -24,7 +24,7 @@ class HashtagsController < ApplicationController
     else
       redirect_to root_url, notice: "Hashtag not destroyed"
     end
-  end
+  ends
 
 private
   def hashtag_params
