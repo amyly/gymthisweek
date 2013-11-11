@@ -1,9 +1,13 @@
-<h1>Welcome</h1>
+<h1>Gym This Week</h1>
 
 <% if current_user %>
 
-
-<h2>Here are the <%= @user_checkins.length %> restaurants you've checked into this week</h2>
+<h2>You have worked out
+  <% if @user_checkins.length == 1 %>
+  <%= @user_checkins.length %> time
+  <% else %>
+  <%= @user_checkins.length %> times
+  <% end %>this week:</h2>
 <ul>
   <% @user_checkins.each do |checkin| %>
   <li>
@@ -17,7 +21,7 @@
 <h3>Hashtags tracked:</h3>
 
 <% @user.hashtags.each do |hashtag| %>
-  #<%= hashtag[:hashtag] %>
+  <%= hashtag[:hashtag] %> (<%= link_to "delete", hashtag, :method => :delete, :class=> :destroy %>)<br>
 <% end %>
 
 <h3>Add new hashtag:</h3>

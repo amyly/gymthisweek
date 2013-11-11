@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  provider: MyString
+  uid: MyString
+  first_name: MyString
+  last_name: MyString
+  email: MyString
+  foursquare_token: MyString
+  custom_hashtags: MyString
+
+two:
+  provider: MyString
+  uid: MyString
+  first_name: MyString
+  last_name: MyString
+  email: MyString
+  foursquare_token: MyString
+  custom_hashtags: MyString
