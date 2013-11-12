@@ -21,7 +21,7 @@
 <h3>Hashtags tracked:</h3>
 
 <% @user.hashtags.each do |hashtag| %>
-  <%= hashtag[:hashtag] %> (<%= link_to "delete", hashtag, :method => :delete, :class=> :destroy %>)<br>
+  <%= hashtag[:hashtag] %> (<%= link_to "delete", hashtag, :method => :delete, :class => :destroy %>)<br>
 <% end %>
 
 <h3>Add new hashtag:</h3>
