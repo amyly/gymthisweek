@@ -1,34 +1,49 @@
-<h1>Gym This Week</h1>
-
 <% if current_user %>
 
-<h2>You have worked out
-  <% if @user_checkins.length == 1 %>
-  <%= @user_checkins.length %> time
-  <% else %>
-  <%= @user_checkins.length %> times
-  <% end %>this week:</h2>
-<ul>
-  <% @user_checkins.each do |checkin| %>
-  <li>
-    <%= checkin[:venue_name] %>, <%= Time.at(checkin[:time]).to_s %>
-  </li>
+  <h1><%= @user_checkins_count %></h1>
+  <p>You have worked out <%= @user_checkins.length %> time(s) this week:
+  </p>
+  <p>
+    <% @user_checkins.each do |checkin| %>
+      <%= checkin[:venue_name] %>, <%= Time.at(checkin[:time]).strftime("%A, %b %-d") %><br>
+    </li>
+    <% end %>
+  </ul>
+
+  <h3>Custom Hashtag Tracking</h3>
+
+  <h4>Hashtags tracked:</h4>
+
+  <% @user.hashtags.each do |hashtag| %>
+    <% if hashtag[:id].to_i > 0 %>
+    <%= hashtag[:hashtag] %> (<%= link_to "delete", hashtag, :method => :delete, :class => :destroy %>)<br>
+    <% else %>
+    No hashtags being tracked!
+    <% end %>
   <% end %>
-</ul>
 
-<h2>Custom Hashtag Tracking</h2>
-
-<h3>Hashtags tracked:</h3>
-
-<% @user.hashtags.each do |hashtag| %>
-  <%= hashtag[:hashtag] %> (<%= link_to "delete", hashtag, :method => :delete, :class => :destroy %>)<br>
-<% end %>
-
-<h3>Add new hashtag:</h3>
-  <%= form_for @hashtag do |f| %>
-    <%= f.label :hashtag %>
+  <h4>Add new hashtag:</h4>
+    <%= form_for @hashtag do |f| %>
     <%= f.text_field :hashtag %>
-    <%= f.submit %>
+    <%= f.submit "Add" %>
   <% end %>
+  <p>
+    Signed in as <%= current_user.first_name %> <%= current_user.last_name %>
+      <%= link_to "Sign out", signout_path %>
+  </p>
 
+<% else %>
+    <h1> Gym This Week</h1>
+
+    <p><strong>How many times have you worked out in the past 7 days?</strong></p>
+    <%= image_tag "gym-icon.png" %>
+
+    <p>Find out, and start tracking custom hashtags.</p>
+
+    <a href="/auth/foursquare"><button type="button" class="btn btn-primary btn-lg">Sign In with Foursquare</button></a>
 <% end %>
+
+<div class="footer">
+  General Assembly Back-End Web Development final project by Amy Ly
+</div>
+

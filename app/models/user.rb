@@ -55,5 +55,15 @@ class User < ActiveRecord::Base
     @checkins << checkin
   end
 
+  def get_count
+    if @checkins.length == 1
+      return "Once"
+    elsif @checkins.length == 2
+      return "Twice"
+    else
+      return "#{@user_checkins.length} times"
+    end
+  end
+
 end
 
