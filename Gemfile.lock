@@ -90,6 +90,7 @@ GEM
     omniauth-oauth2 (1.1.1)
       oauth2 (~> 0.8.0)
       omniauth (~> 1.0)
+    pg (0.17.0)
     polyglot (0.3.3)
     pry (0.9.12.2)
       coderay (~> 1.0.5)
@@ -159,6 +160,7 @@ DEPENDENCIES
   jbuilder (~> 1.2)
   jquery-rails
   omniauth-foursquare
+  pg
   pry
   rails (= 4.0.0)
   sass-rails (~> 4.0.0)
