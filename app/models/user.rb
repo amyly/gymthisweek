@@ -56,9 +56,11 @@ class User < ActiveRecord::Base
   end
 
   def get_count
-    count = ["Once", "Twice", "Three Times", "Four Times", "Five Times", "Six TImes", "Seven Times"]
-    if @checkins.length <= 7
-      "#{count[@checkins.length-1]} times"
+    count = ["Zero", "Once", "Twice", "Three", "Four", "Five", "Six", "Seven"]
+    if @checkins.length == 1 || @checkins.length == 2
+      "#{count[@checkins.length]}"
+    elsif @checkins.length <= 7 && @checkins.length > 2
+      "#{count[@checkins.length]} times"
     else
       "#{@user_checkins.length} times"
     end
