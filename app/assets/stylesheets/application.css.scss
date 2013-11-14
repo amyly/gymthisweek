@@ -27,7 +27,8 @@ $font-size-base: 16px;
 $font-size-h1: 64px;
 
 // Colors
-$brand-primary: #1b9792;
+$brand-primary: #0F4D92;
+// $brand-primary: #1b9792;
 $btn-primary-border: #fff;
 
 @import "bootstrap";
@@ -35,6 +36,7 @@ $btn-primary-border: #fff;
 .container {
   text-align: center;
   padding-top: 40px;
+  margin: 0 auto;
 }
 
 .clear {
@@ -55,8 +57,8 @@ p {
 }
 
 .btn {
-  font-family: 'Open Sans', sans-serif;
-  font-size: 20px;
+  // font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
   margin-top: 10px;
   margin-bottom: 10px;
 }
