@@ -37,6 +37,10 @@ $btn-primary-border: #fff;
   padding-top: 40px;
 }
 
+.clear {
+  clear: both;
+}
+
 h1 {
   text-transform: uppercase;
   line-height: 90px;
@@ -46,6 +50,10 @@ h4 {
   line-height: 40px;
 }
 
+p {
+  clear: both;
+}
+
 .btn {
   font-family: 'Open Sans', sans-serif;
   font-size: 20px;
@@ -53,7 +61,96 @@ h4 {
   margin-bottom: 10px;
 }
 
+.week {
+  width: 770px;
+  margin: 0 auto;
+  padding-top: 25px;
+}
+
+.weekday_date {
+  font-family: $headings-font-family;
+  font-size: 13px;
+  color: #888;
+}
+
+.weekday {
+  float: left;
+  text-align: center;
+  padding-left: 20px;
+  padding-right: 20px;
+  width: 14.26%;
+}
+
+.weekday_name {
+  font-family: $headings-font-family;
+  font-size: 20px;
+  padding-bottom: 5px;
+}
+
+.checkin {
+  font-size: 14px;
+}
+
+.green {
+  color: $brand-primary;
+}
+
+.hashtag-tracking, .hashtag-form {
+  padding-top: 20px;
+}
+
+.hashtag-form {
+  padding-bottom: 50px;
+}
+
+span.glyphicon-remove {
+  font-size: 12px;
+}
+
+.close {
+  font-size: 18px;
+}
+
 .footer {
   font-size: 12px;
   padding-top: 30px
+}
+
+
+
+
+@media only screen and (max-width: 768px) {
+
+  .week {
+    width: 100%
+  }
+
+  .weekday_unit, .checkin, .weekday_date, .weekday_name {
+    float: left;
+    text-align: left
+  }
+
+  .weekday {
+    padding-top: 10px;
+    padding-left: 40px;
+  }
+
+  .weekday_date {
+    font-size: 20px;
+    width: 70px;
+  }
+
+  .weekday_name {
+    width: 40px;
+  }
+
+  .checkin {
+    padding-left: 10px;
+    font-size: 20px;
+  }
+
+  .weekday {
+    width: 100%;
+  }
+
 }

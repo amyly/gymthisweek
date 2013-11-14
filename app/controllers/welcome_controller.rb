@@ -6,5 +6,8 @@ class WelcomeController < ApplicationController
       @hashtag = current_user.hashtags.build
       @user_checkins_count = current_user.get_count
     end
+
+    @week_array = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+
   end
 end

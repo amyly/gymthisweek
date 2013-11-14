@@ -1,34 +1,52 @@
 <% if current_user %>
 
-  <h1><%= @user_checkins_count %></h1>
-  <p>You have worked out <%= @user_checkins.length %> time(s) this week:
-  </p>
-  <p>
-    <% @user_checkins.each do |checkin| %>
-      <%= checkin[:venue_name] %>, <%= Time.at(checkin[:time]).strftime("%A, %b %-d") %><br>
-    </li>
-    <% end %>
-  </ul>
-
-  <h3>Custom Hashtag Tracking</h3>
-
-  <h4>Hashtags tracked:</h4>
-
-  <% @user.hashtags.each do |hashtag| %>
-    <% if hashtag[:id].to_i > 0 %>
-    <%= hashtag[:hashtag] %> (<%= link_to "delete", hashtag, :method => :delete, :class => :destroy %>)<br>
-    <% else %>
-    No hashtags being tracked!
-    <% end %>
+  <p>Hi <%= current_user.first_name %>,<br> You have worked out</p>
+  <h1 class="green"><%= @user_checkins_count %></h1>
+  <p>in the past 7 days.</p>
+  <div class="week">
+  <% 0.upto(6) do |d| %>
+    <% date = Time.now - 518400 + d * 86400 %>
+      <div class="weekday">
+          <div class="weekday_date"><%= date.strftime("%^b %e") %></div>
+          <div class="weekday_name">
+          <% if Time.now.day == Time.at(date).day %>
+            TODAY
+          <% else %>
+            <%= date.strftime("%^a") %>
+          <% end %>
+          </div>
+        <% @user_checkins.each do |checkin| %>
+          <% if Time.at(checkin[:time]).day == Time.at(date).day %>
+            <div class="checkin"><%= checkin[:venue_name] %> @ <%= Time.at(checkin[:time]).strftime("%l:%M %P") %></div>
+          <% end %>
+        <% end %>
+      </div>
   <% end %>
+  </div>
 
-  <h4>Add new hashtag:</h4>
-    <%= form_for @hashtag do |f| %>
-    <%= f.text_field :hashtag %>
-    <%= f.submit "Add" %>
-  <% end %>
+  <div class="clear"></div>
+
+  <div class="hashtag-tracking">
+    <h4>* * *</h4>
+    <h4>TRACK CUSTOM HASHTAGS</h4>
+    <p>Count checkins that mention the following hashtag(s):</p>
+
+    <% @user.hashtags.each do |hashtag| %>
+      <% if hashtag[:id] %>
+      #<%= hashtag[:hashtag] %> <%= link_to hashtag, :method => :delete, :class => :destroy, :title => "Delete hashtag" do %><span class="glyphicon glyphicon-remove"></span><% end %><br>
+      <% end %>
+    <% end %>
+
+    <div class="hashtag-form">
+      <%= form_for @hashtag do |f| %>
+        #<%= f.text_field :hashtag %>
+        <%= f.submit "Add" %>
+      <% end %>
+    </div>
+  </div>
+
   <p>
-    Signed in as <%= current_user.first_name %> <%= current_user.last_name %>
+    Not <%= current_user.first_name %>?
       <%= link_to "Sign out", signout_path %>
   </p>
 
@@ -36,11 +54,11 @@
     <h1> Gym This Week</h1>
 
     <p><strong>How many times have you worked out in the past 7 days?</strong></p>
-    <%= image_tag "gym-icon.png" %>
+    <%= image_tag "Amy-Working-Out.jpg", :width => 350 %>
 
     <p>Find out, and start tracking custom hashtags.</p>
 
-    <a href="/auth/foursquare"><button type="button" class="btn btn-primary btn-lg">Sign In with Foursquare</button></a>
+    <a href="/auth/foursquare"><button type="button" class="btn btn-primary btn-lg">Connect with Foursquare</button></a>
 <% end %>
 
 <div class="footer">
