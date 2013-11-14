@@ -59,7 +59,7 @@ class User < ActiveRecord::Base
     count = ["Zero", "Once", "Twice", "Three", "Four", "Five", "Six", "Seven"]
     if @checkins.length == 1 || @checkins.length == 2
       "#{count[@checkins.length]}"
-    elsif @checkins.length <= 7 && @checkins.length > 2
+    elsif @checkins.length <= 7
       "#{count[@checkins.length]} times"
     else
       "#{@user_checkins.length} times"
