@@ -27,6 +27,4 @@ GirlTalk::Application.configure do
   # number of complex assets.
   config.assets.debug = true
 
-  ENV['FOURSQUARE_ID'] = "UVAG0LCZ3XVQFVSTAN0MQ4KJNI0ZK4PH4DU1FXFCED15RE43";
-  ENV['FOURSQUARE_SECRET'] = "INFZEKJROG54HRPGKIHEI43CMWXR4XASNDRBO21I0HJJYTXI";
 end
