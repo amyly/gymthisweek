@@ -31,7 +31,7 @@ class User < ActiveRecord::Base
         end
       end
       current_user.hashtags.each do |hashtag|
-        if (item["shout"].to_s.downcase.include? '#' + hashtag[:hashtag].to_s
+        if item["shout"].to_s.downcase.include? '#' + hashtag[:hashtag].to_s
           count_checkin(item)
         end
       end
