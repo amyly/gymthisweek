@@ -3,7 +3,7 @@
   <p>Hi <%= current_user.first_name %>,<br> You have worked out</p>
   <h1 class="green"><%= @user_checkins_count %></h1>
   <p>in the past 7 days.</p>
-  <div class="week">
+  <div class="week center-block">
   <% 0.upto(6) do |d| %>
     <% date = Time.now - 518400 + d * 86400 %>
       <div class="weekday">
@@ -24,7 +24,7 @@
   <% end %>
   </div>
 
-  <div class="clear"></div>
+  <div class="clearfix"></div>
 
   <div class="hashtag-tracking">
     <h4>* * *</h4>
@@ -56,12 +56,28 @@
     <p><strong>How many times have you worked out in the past 7 days?</strong></p>
     <%= image_tag "Amy-Working-Out.jpg", :width => 350 %>
 
-    <p>Find out, and start tracking custom hashtags.</p>
+    <p>Track your gym visits & <a href="#" data-toggle="modal" data-target="#myModal">custom hashtags</a>.</p>
 
     <a href="/auth/foursquare"><button type="button" class="btn btn-primary btn-lg">Connect with Foursquare</button></a>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="myModalLabel">WHAT IS CUSTOM HASHTAG TRACKING?</h4>
+          </div>
+          <div class="modal-body">
+            By default, this app only counts visits to "Gym / Fitness Center" locations. But not all exercise takes place at gyms.<br><br>You can customize the app to also accept all checkins mentioning <b>#run</b>, <b>#kickball</b>, <b>#bhangra</b> &ndash; or any other hashtag you wish to track.
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
 <% end %>
 
 <div class="footer">
-  General Assembly Back-End Web Development final project by Amy Ly
+  General Assembly <a href="http://generalassemb.ly/education/back-end-web-development" target="_blank">Back-End Web Development</a> final project by Amy Ly. <a href="https://github.com/amyly/gymthisweek">Fork me on Github</a>.
 </div>
 
