@@ -3,5 +3,3 @@
 One-page app that counts the number of times you've worked out in a week, based on your Foursquare checkins.
 
 By default, the app counts visits to "Gym / Fitness Center" locations. You can customize the app to also accept all checkins mentioning #run, #kickball, #bhangra – or any other hashtag you wish to track.
-
-Created as part of <a href="http://generalssemb.ly">General Assembly</a>'s 10-week <a href="http://generalssemb.ly/education/back-end-web-development">Back-End Web Development</a> course.
