@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   def self.from_omniauth(auth)
     where(auth.slice("provider", "uid")).first || create_from_omniauth(auth)
   end
+
   def self.create_from_omniauth(auth)
     create! do |user|
       user.provider = auth["provider"]
@@ -16,7 +17,7 @@ class User < ActiveRecord::Base
   end
 
   def get_checkins(current_user)
-    client = Foursquare2::Client.new(:oauth_token => current_user.foursquare_token)
+    client = Foursquare2::Client.new(:oauth_token => current_user.foursquare_token, :api_version => '20131123')
 
     # Finds Epoch time for 6 days ago (starting at midnight)
     t = Time.now
