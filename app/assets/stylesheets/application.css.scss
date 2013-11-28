@@ -123,7 +123,8 @@ span.glyphicon-remove {
 @media only screen and (max-width: 768px) {
 
   .img {
-    width: 100%
+    max-width: 100%;
+    height: auto;
   }
 
   .week {

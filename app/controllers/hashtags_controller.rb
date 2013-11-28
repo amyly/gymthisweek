@@ -12,7 +12,7 @@ class HashtagsController < ApplicationController
     if @hashtag.save
       redirect_to root_url, notice: "Hashtag added!"
     else
-      redirect_to root_url, notice: "Hashtag not added :("
+      redirect_to root_url, notice: "Hashtag not added: only letters and numbers allowed."
     end
   end
 
