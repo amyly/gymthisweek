@@ -7,10 +7,10 @@ gem 'rails', '4.0.0'
 gem 'pry'
 
 # Foursquare API
-gem 'foursquare2', :git => 'git://github.com/mattmueller/foursquare2.git'
+gem 'foursquare2'
 
 # Foursquare omniauth strategy
-gem 'omniauth-foursquare', :git => 'git://github.com/arunagw/omniauth-foursquare.git'
+gem 'omniauth-foursquare'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
