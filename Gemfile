@@ -7,7 +7,7 @@ gem 'rails', '4.0.0'
 gem 'pry'
 
 # Foursquare API
-gem 'foursquare2'
+gem 'foursquare2', :git => 'git://github.com/mattmueller/foursquare2.git'
 
 # Foursquare omniauth strategy
 gem 'omniauth-foursquare'
