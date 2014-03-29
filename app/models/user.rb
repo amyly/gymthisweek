@@ -26,14 +26,18 @@ class User < ActiveRecord::Base
     # Gets checkins in specific category since seven_days_ago
     @checkins = Array.new
     client.user_checkins(:afterTimestamp => seven_days_ago)["items"].map do |item|
+      checkin_ids = Array.new
       item["venue"]["categories"].map do |category|
         if category.name.include? "Gym" || "Track" || "Yoga" || "Martial Arts"
           count_checkin(item)
+          checkin_ids << item["venue"][:id]
         end
       end
       current_user.hashtags.each do |hashtag|
         if item["shout"].to_s.downcase.include? '#' + hashtag[:hashtag].to_s
-          count_checkin(item)
+          unless checkin_ids.include?(item["venue"][:id])
+            count_checkin(item)
+          end
         end
       end
     end
